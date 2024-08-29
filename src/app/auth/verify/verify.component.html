@@ -1,0 +1,13 @@
+<!-- <p>verify works!</p> -->
+
+<div class="otp-verify-container">
+    <h2>OTP Verification</h2>
+    <form class="otp-verify-form" [formGroup]="loginData" (ngSubmit)="onSubmit()">
+        <!-- <input type="text" class="form-input" placeholder="Enter the OTP code" required> -->
+        <input type="text" id="otp" formControlName="otp" placeholder="Enter the OTP code">
+        <div *ngIf="loginData.get('otp')?.hasError('required') && loginData.get('otp')?.touched" class="error-message">
+            OTP is required.
+        </div>
+        <button type="submit" class="verify-button">Verify</button>
+    </form>
+</div>

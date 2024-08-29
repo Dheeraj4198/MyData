@@ -1,0 +1,28 @@
+<!-- <p>login works!</p> -->
+
+<div class="login-container">
+    <div class="login-form">
+        <h2>Login</h2>
+        <form [formGroup]="loginData" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <label for="userName">Username</label>
+                <input type="text" id="userName" formControlName="userName" placeholder="Enter your username">
+                <div *ngIf="loginData.get('userName')?.hasError('required') && loginData.get('userName')?.touched"
+                    class="error-message">
+                    Username is required.
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" formControlName="password" placeholder="Enter your password">
+                <div *ngIf="loginData.get('password')?.hasError('required') && loginData.get('password')?.touched"
+                    class="error-message">
+                    Password is required.
+                </div>
+            </div>
+            <button type="submit" [disabled]="loginData.invalid">Login</button>
+        </form>
+        <p class="register-link">Don't have an account? <a routerLink="/auth/register">Register</a></p>
+        <router-outlet></router-outlet>
+    </div>
+</div>

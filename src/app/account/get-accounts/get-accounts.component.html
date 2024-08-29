@@ -1,0 +1,52 @@
+<!-- <p>get-accounts works!</p> -->
+
+<!-- <div>
+    <h1>hello</h1>
+    <div *ngFor="let item of accounts">
+        <div style="border: 1px solid black;">
+            <p>{{item.accType}} Account</p>
+            <p>{{item.accNo}}</p>
+        </div>
+        <div style="border: 1px solid black;">
+            <p>Available Balance</p>
+            <p>₹ {{item.accBalance}}</p>
+        </div>
+        <div style="border: 1px solid black;">
+            <p>Account Holder: {{item.users.name}}</p>
+            <p>Branch: {{item.users.bank.bankAddress}}</p>
+            <p>IFSC: {{item.users.bank.ifsc}}</p>
+            <p>Account Balance: ₹ {{item.accBalance}}</p>
+            <p>Linked Cards</p>
+            <p>Card: {{item.cards.cardNumber}}</p>
+        </div>
+    </div>
+</div> -->
+
+
+<div class="account-info">
+    <div class="info-box">
+        <h3>Account Type</h3>
+        <input type="text" class="form-control" id="accType" name="accType" [(ngModel)]="accounts.accType" disabled>
+    </div>
+    <div class="info-box">
+        <h3>Available Balance</h3>
+        <input type="text" class="form-control" id="accBalance" name="accBalance" [(ngModel)]="accounts.accBalance"
+            disabled>
+    </div>
+    <div class="info-box">
+        <h3>Account Holder</h3>
+        <input type="text" class="form-control" id="accHolder" name="accHolder" [(ngModel)]="accounts.users.name"
+            disabled>
+        <h3>Branch</h3>
+        <input type="text" class="form-control" id="branch" name="branch" [(ngModel)]="accounts.users.bank.bankAddress"
+            disabled>
+        <h3>IFSC</h3>
+        <input type="text" class="form-control" id="ifsc" name="ifsc" [(ngModel)]="accounts.users.bank.ifsc" disabled>
+        <h3>Account Balance:</h3>
+        <input type="text" class="form-control" id="accBalance" name="accBalance" [(ngModel)]="accounts.accBalance"
+            disabled>
+        <h3>Linked Cards</h3>
+        <input type="text" class="form-control" id="cardNumber" name="cardNumber"
+            [(ngModel)]="accounts.cards.cardNumber" disabled>
+    </div>
+</div>
