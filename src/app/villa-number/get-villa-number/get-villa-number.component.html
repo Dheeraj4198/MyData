@@ -1,0 +1,50 @@
+<!-- <p>get-villa-number works!</p> -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+</head>
+
+<body>
+    <div class="container p-4 border">
+        <div class="row pb-2">
+            <div class="col">
+                <h1 class="text-primary">Room List</h1>
+            </div>
+            <div class="col text-end pt-1">
+                <a class="btn btn-outline-primary" routerLink="/villaNumber/add-villaNumber">
+                    <i class="bi bi-person-plus-fill"></i>
+                    Create New Room</a>
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Room Number</th>
+                    <th>Villa Name</th>
+                    <th>specialDetails</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of villaNumber">
+                    <td>{{item.villaNo}}</td>
+                    <td>{{item.villa.name}}</td>
+                    <td>{{item.specialDetails}}</td>
+                    <td>
+                        <a class="btn btn-success" [routerLink]="['', item.villaNo]">
+                            <i class="bi bi-pencil-square"></i></a>
+                        <router-outlet></router-outlet>
+                        <button type="button" class="btn btn-danger" (click)="DeleteVillaNumber(item.villaNo)">
+                            <i class="bi bi-trash-fill"></i></button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>

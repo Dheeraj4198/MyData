@@ -1,0 +1,43 @@
+<!-- <p>villa works!</p> -->
+<br />
+<div class="container p-4 border">
+    <div class="row pb-2">
+        <div class="col d-flex justify-content-start">
+            <h2 class="text-primary">Villa List</h2>
+        </div>
+        <div class="col d-flex">
+            <input type="text" class="form-control" placeholder="serach using filter pipe" [(ngModel)]="filterText">
+        </div>
+        <div class="col pt-1 d-flex justify-content-end">
+            <a class="btn btn-outline-primary" routerLink="/villa/add-villa"><i class="bi bi-person-plus-fill"></i>
+                New</a>
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+    <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Rate</th>
+                <th>Occupancy</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of villas | filter: filterText">
+                <td>{{item.id}}</td>
+                <td>{{item.name}}</td>
+                <td>{{item.rate}}</td>
+                <td>{{item.occupancy}}</td>
+                <td>
+                    <a class="btn btn-success" [routerLink]="['/villa/edit-villa/', item.id]">
+                        <i class="bi bi-pencil-square"></i></a>
+                    <router-outlet></router-outlet>
+                    <button type="button" class="btn btn-danger" (click)="DeleteVillas(item.id.toString())">
+                        <i class="bi bi-trash-fill"></i></button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

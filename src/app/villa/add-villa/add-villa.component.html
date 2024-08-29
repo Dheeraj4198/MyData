@@ -1,0 +1,103 @@
+<!-- <p>add-villa works!</p> -->
+<form #form="ngForm" (ngSubmit)="AddVillas()" [formGroup]="addVillaForm">
+    <div class="container">
+        <h1 class="text-primary">Create Villa</h1>
+        <hr />
+
+        <div class="row">
+            <div class="col-md-6">
+                <label for="name" class="form-label">Villa Name</label>
+                <input type="text" class="form-control" id="name" name="name" [(ngModel)]="addVilla.name"
+                    placeholder="Enter villa name" formControlName="name">
+
+                <div *ngIf="addVillaForm.get('name')?.hasError('required') && addVillaForm.get('name')?.touched"
+                    class="text-danger">
+                    Villa Name is required.
+                </div>
+                <div *ngIf="addVillaForm.get('name')?.hasError('minlength') && addVillaForm.get('name')?.touched"
+                    class="text-danger">
+                    Villa Name must be at least 3 characters long.
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <label for="rate" class="form-label">Rate</label>
+                <input type="number" class="form-control" id="rate" name="rate" [(ngModel)]="addVilla.rate"
+                    placeholder="Enter rate" formControlName="rate">
+
+                <div *ngIf="addVillaForm.get('rate')?.hasError('required') && addVillaForm.get('rate')?.touched"
+                    class="text-danger">
+                    Rate is required.
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <label for="details" class="form-label">Details</label>
+                <input type="text" class="form-control" id="details" name="details" [(ngModel)]="addVilla.details"
+                    placeholder="Enter details" formControlName="details">
+
+                <div *ngIf="addVillaForm.get('details')?.hasError('required') && addVillaForm.get('details')?.touched"
+                    class="text-danger">
+                    Details are required.
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <label for="sqft" class="form-label">Square Feet</label>
+                <input type="number" class="form-control" id="sqft" name="sqft" [(ngModel)]="addVilla.sqft"
+                    placeholder="Enter square feet" formControlName="sqft">
+
+                <div *ngIf="addVillaForm.get('sqft')?.hasError('required') && addVillaForm.get('sqft')?.touched"
+                    class="text-danger">
+                    Sqft is required.
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <label for="occupancy" class="form-label">Occupancy</label>
+                <input type="number" class="form-control" id="occupancy" name="occupancy"
+                    [(ngModel)]="addVilla.occupancy" placeholder="Enter occupancy" formControlName="occupancy">
+
+                <div *ngIf="addVillaForm.get('occupancy')?.hasError('required') && addVillaForm.get('occupancy')?.touched"
+                    class="text-danger">
+                    Occupancy is required.
+                </div>
+            </div>
+            <div class="col-md-6">
+                <label for="amenity" class="form-label">Amenity</label>
+                <input type="text" class="form-control" id="amenity" name="amenity" [(ngModel)]="addVilla.amenity"
+                    placeholder="Enter amenity" formControlName="amenity">
+
+                <div *ngIf="addVillaForm.get('amenity')?.hasError('required') && addVillaForm.get('amenity')?.touched"
+                    class="text-danger">
+                    Amenity is required.
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <label for="imageUrl" class="form-label">Image URL</label>
+                <input type="text" class="form-control" id="imageUrl" name="imageUrl" [(ngModel)]="addVilla.imageUrl"
+                    placeholder="Enter image URL" formControlName="imageUrl">
+
+                <div *ngIf="addVillaForm.get('imageUrl')?.hasError('required') && addVillaForm.get('imageUrl')?.touched"
+                    class="text-danger">
+                    ImageUrl is required.
+                </div>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-md-6">
+                <a class="btn btn-primary form-control" routerLink="/villa/get-villa">Back to List</a>
+            </div>
+            <div class="col-md-6">
+                <button type="submit" class="btn btn-success form-control">Submit</button>
+            </div>
+        </div>
+    </div>
+</form>
