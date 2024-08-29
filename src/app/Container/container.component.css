@@ -1,0 +1,25 @@
+.app-Container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.main {
+    padding: 20px 20px;
+    border: 5px solid;
+}
+
+.Directives {
+    border: 2px solid black;
+}
+
+.child {
+    border: 2px solid blue;
+}
+
+.TemplateReference {
+    border: 2px solid violet;
+}
+
+.View_Child {
+    border: 2px solid green;
+}
